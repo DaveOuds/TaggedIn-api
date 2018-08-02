@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'TaggedInApi.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'TaggedDB',
+        'NAME': 'tagged_db',
     }
 }
 
