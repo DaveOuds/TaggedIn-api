@@ -5,7 +5,7 @@ verify_ssl = true
 [packages]
 django = "*"
 djangorestframework = "*"
-django-rest-auth[with_social] = "*"
+django-rest-auth = "*"
 pymongo = "*"
 mongoengine = "*"
 django-cors-headers = "*"
