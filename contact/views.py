@@ -16,7 +16,7 @@ class ContactList(APIView):
         return str(user['_id'])
 
     def get(self, request):
-        owner=self.get_owner(request)
+        owner = self.get_owner(request)
         contacts = Contact.objects.filter(owner=owner)
         serializer = ContactSerializer(contacts, many=True)
         return Response(serializer.data)
@@ -24,26 +24,21 @@ class ContactList(APIView):
     def post(self, request):
         owner = self.get_owner(request)
         contacts = Contact.objects.all().filter(owner=owner)
-        if contacts == []:
-            data=request.data
-        else:
-            data=[]
-            for contact in request.data:
-                contact['owner'] = owner
-                if contact not in contacts:
-                    data.append(contact)
-
-        serializer = ContactSerializer(data=data, many=True)
+        contacts.delete
+        for contact in request.data:
+           contact['owner'] = owner
+        serializer = ContactSerializer(data=request.data, many=True)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=201)
         return Response(serializer.errors, status=400)
 
     def delete(self, request):
-        owner=self.get_owner(request)
+        owner = self.get_owner(request)
         contacts = Contact.objects.filter(owner=owner)
         contacts.delete()
         return Response("All data deleted", status=200)
+
 
 @api_view(['GET', 'PUT', 'DELETE', 'POST'])
 @permission_classes((IsAuthenticated, ))
@@ -59,7 +54,7 @@ def contact_detail(request, pk):
     client = MongoClient('localhost', 27017)
     users = client.TaggedDB.auth_user
     user = users.find_one({"id": request.user.id})
-    user_id= str(user['_id'])
+    user_id = str(user['_id'])
 
     if user_id != contact.owner:
         return Response("You are not authorized for this data.", status=402)
