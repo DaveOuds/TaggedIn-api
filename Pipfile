@@ -10,6 +10,7 @@ mongoengine = "*"
 django-cors-headers = "*"
 django-allauth = "*"
 djongo = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.6"
