@@ -3,9 +3,8 @@ from rest_auth.views import (
     LoginView, LogoutView, PasswordChangeView
 )
 
-from user.views import (
-    RegisterView, DeleteUserView,
-)
+from rest_auth.registration.views import RegisterView
+from user.views import DeleteUserView
 
 urlpatterns = [
     url(r'^login$', LoginView.as_view()),
