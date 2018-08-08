@@ -28,7 +28,6 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 ALLOWED_HOSTS = [
     'tagged-in-api.herokuapp.com',
     '127.0.0.1',
-    '70.168.129.78',
 ]
 
 
@@ -149,7 +148,8 @@ REST_FRAMEWORK = {
 }
 
 CORS_ORIGIN_WHITELIST = (
-    'http://localhost:3000'
+    'http://localhost:3000',
+    '70.168.129.78'
 )
 CORS_ALLOW_METHODS = (
     '*'
