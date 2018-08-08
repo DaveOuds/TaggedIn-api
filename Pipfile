@@ -14,5 +14,6 @@ djongo = "*"
 gunicorn = "*"
 dj-database-url = "*"
 python-decouple = "*"
+psycopg2 = "*"
 [requires]
 python_version = "3.6"
