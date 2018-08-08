@@ -12,6 +12,7 @@ django-cors-headers = "*"
 django-allauth = "*"
 djongo = "*"
 gunicorn = "*"
-
+dj-database-url = "*"
+python-decouple = "*"
 [requires]
 python_version = "3.6"
