@@ -12,7 +12,6 @@ django-cors-headers = "*"
 django-allauth = "*"
 djongo = "*"
 gunicorn = "*"
-dj-database-url = "*"
 python-decouple = "*"
 psycopg2 = "*"
 [requires]
