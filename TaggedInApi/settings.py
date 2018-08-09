@@ -149,8 +149,7 @@ REST_FRAMEWORK = {
 
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
-    '70.168.129.78',
-    '10.37.176.161'
+    '70.168.129.78'
 )
 CORS_ALLOW_METHODS = (
     '*'
